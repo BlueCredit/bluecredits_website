@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — BlueCredit Water Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0A1F3C;--blue-dk:#0C3468;--blue:#1252A3;--blue-md:#1A6BCC;--blue-lt:#2E8EE6;
+  --sky:#D6E8F8;--sky-lt:#EBF4FD;
+  --gray-900:#1C1C1E;--gray-700:#3A3A3C;--gray-500:#636366;
+  --gray-100:#E5E5EA;--gray-50:#F2F2F7;
+  --ff-d:"Playfair Display",Georgia,serif;--ff-b:"Inter",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-b);color:var(--gray-900);background:#fff;line-height:1.6;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 4rem;background:rgba(255,255,255,.97);border-bottom:1px solid var(--gray-100);}
+.n-logo{display:flex;align-items:center;text-decoration:none;}
+.n-logo img{height:32px;width:auto;}
+.n-links{display:flex;align-items:center;gap:2.5rem;}
+.n-links>a{font-size:.85rem;font-weight:500;color:var(--gray-700);text-decoration:none;transition:color .2s;}
+.n-links>a:hover,.n-links>a.act{color:var(--blue);}
+.n-drop{position:relative;}
+.n-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;
+       font-family:var(--ff-b);font-size:.85rem;font-weight:500;color:var(--gray-700);
+       cursor:pointer;padding:0;transition:color .2s;}
+.n-btn:hover,.n-btn.act{color:var(--blue);}
+.n-btn svg{transition:transform .25s;}
+.n-drop.open .n-btn{color:var(--blue);}
+.n-drop.open .n-btn svg{transform:rotate(180deg);}
+.n-menu{display:none;position:absolute;top:calc(100% + 10px);left:0;
+        min-width:210px;background:#fff;border:1px solid var(--gray-100);
+        border-radius:12px;padding:5px;
+        box-shadow:0 8px 30px rgba(10,31,60,.15);z-index:999;}
+.n-drop.open .n-menu{display:block;}
+.n-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:.85rem;
+          color:var(--gray-700);text-decoration:none;white-space:nowrap;
+          transition:background .15s,color .15s;}
+.n-menu a:hover,.n-menu a.act{background:var(--sky-lt);color:var(--blue-dk);}
+.n-cta{display:inline-flex;align-items:center;gap:6px;background:var(--blue);
+       color:#fff!important;padding:9px 22px;border-radius:8px;font-weight:600;
+       font-size:.85rem;text-decoration:none;transition:background .2s;}
+.n-cta:hover{background:var(--blue-dk)!important;}
+
+/* ── LAYOUT ── */
+.pw{padding-top:68px;}
+section{padding:80px 4rem;}
+.inn{max-width:1200px;margin:0 auto;}
+.lbl{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+     text-transform:uppercase;color:var(--blue-md);margin-bottom:.6rem;}
+.stitle{font-family:var(--ff-d);font-size:clamp(1.8rem,2.8vw,2.5rem);font-weight:700;
+        color:var(--navy);line-height:1.18;margin-bottom:.75rem;letter-spacing:-.02em;}
+.ssub{font-size:.95rem;color:var(--gray-500);max-width:600px;line-height:1.8;margin-bottom:3rem;}
+
+/* ── PAGE HERO ── */
+.ph{background:var(--navy);padding:110px 4rem 80px;position:relative;overflow:hidden;}
+.ph::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 85% 50%,rgba(30,107,204,.38) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 60% at 15% 80%,rgba(12,52,104,.5) 0%,transparent 65%);}
+.ph .inn{position:relative;}
+.hl{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--blue-lt);margin-bottom:1.25rem;}
+.ph h1{font-family:var(--ff-d);font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:700;
+       color:#fff;line-height:1.12;letter-spacing:-.025em;margin-bottom:1.1rem;}
+.ph h1 em{font-style:italic;color:#7EC8F5;}
+.ph p{font-size:1rem;color:rgba(255,255,255,.65);max-width:580px;line-height:1.8;}
+.page-tabs{display:flex;gap:2px;background:rgba(255,255,255,.08);
+           border:1px solid rgba(255,255,255,.15);border-radius:12px;
+           padding:4px;width:fit-content;margin-top:2rem;}
+.ptab{padding:9px 22px;border-radius:9px;font-size:.85rem;font-weight:500;
+      color:rgba(255,255,255,.65);text-decoration:none;transition:all .2s;}
+.ptab:hover{color:#fff;background:rgba(255,255,255,.08);}
+.ptab.act{background:#fff;color:var(--navy);font-weight:600;}
+
+/* ── BUTTONS ── */
+.bw{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);
+    padding:13px 28px;border-radius:10px;font-weight:700;font-size:.9rem;
+    text-decoration:none;margin-top:2rem;transition:background .2s;}
+.bw:hover{background:var(--sky-lt);}
+.bb{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;
+    padding:11px 24px;border-radius:9px;font-weight:600;font-size:.85rem;
+    text-decoration:none;border:none;cursor:pointer;font-family:var(--ff-b);transition:background .2s;}
+.bb:hover{background:var(--blue-dk);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.5);padding:60px 4rem 36px;}
+.fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:3rem;padding-bottom:3rem;margin-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.fb img{height:32px;margin-bottom:1rem;}
+.fb p{font-size:.83rem;line-height:1.75;max-width:280px;}
+.fc h4{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+       color:rgba(255,255,255,.35);margin-bottom:1rem;}
+.fc ul{list-style:none;}
+.fc li{margin-bottom:.55rem;}
+.fc a{font-size:.83rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.fc a:hover{color:#fff;}
+.fbot{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;
+      align-items:center;font-size:.78rem;color:rgba(255,255,255,.25);}
+.fs{display:flex;gap:1.5rem;}
+.fs a{color:rgba(255,255,255,.3);font-size:.78rem;text-decoration:none;transition:color .2s;}
+.fs a:hover{color:#fff;}
+</style>
+<style>
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;
+      padding:0 4rem;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 80% at 75% 40%,rgba(18,82,163,.5) 0%,transparent 65%),
+             radial-gradient(ellipse 50% 60% at 10% 70%,rgba(12,52,104,.6) 0%,transparent 60%);}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:36px 36px;}
+.hi{position:relative;max-width:1200px;margin:0 auto;width:100%;
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:5rem;align-items:center;}
+.hey{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);
+     border:1px solid rgba(255,255,255,.16);color:var(--blue-lt);font-size:.68rem;
+     font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;
+     border-radius:100px;margin-bottom:1.5rem;}
+.hey span{width:6px;height:6px;border-radius:50%;background:var(--blue-lt);display:block;}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2.4rem,4vw,3.8rem);font-weight:700;
+         color:#fff;line-height:1.1;letter-spacing:-.025em;margin-bottom:1.5rem;}
+.hero h1 em{font-style:italic;color:#7EC8F5;}
+.hsub{font-size:1.05rem;color:rgba(255,255,255,.65);line-height:1.8;max-width:480px;margin-bottom:2.5rem;}
+.ha{display:flex;gap:1rem;flex-wrap:wrap;}
+.bp{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);
+    padding:14px 30px;border-radius:10px;font-weight:700;font-size:.95rem;
+    text-decoration:none;transition:background .2s;}
+.bp:hover{background:var(--sky-lt);}
+.bg{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.3);
+    color:rgba(255,255,255,.85);padding:14px 28px;border-radius:10px;font-weight:500;
+    font-size:.95rem;text-decoration:none;transition:all .2s;}
+.bg:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.07);}
+.hc{display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);
+    border-radius:18px;overflow:hidden;}
+.cb{padding:2rem 1.75rem;background:rgba(255,255,255,.04);transition:background .2s;}
+.cb:hover{background:rgba(255,255,255,.09);}
+.cv{font-family:var(--ff-d);font-size:2.2rem;font-weight:700;color:#fff;line-height:1;margin-bottom:5px;}
+.cv span{color:var(--blue-lt);}
+.cl{font-size:.74rem;color:rgba(255,255,255,.45);letter-spacing:.04em;}
+.tb{background:var(--sky-lt);border-top:1px solid var(--sky);border-bottom:1px solid var(--sky);
+    padding:22px 4rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;}
+.ti{display:flex;align-items:center;gap:9px;font-size:.8rem;font-weight:500;color:var(--blue-dk);}
+.ti svg{width:17px;height:17px;stroke:var(--blue);fill:none;stroke-width:1.8;flex-shrink:0;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;
+    background:var(--gray-100);border-radius:18px;overflow:hidden;}
+.sc{background:#fff;padding:2.25rem 2rem;display:flex;flex-direction:column;transition:background .2s;}
+.sc:hover{background:var(--sky-lt);}
+.si{width:46px;height:46px;border-radius:12px;background:var(--sky-lt);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;}
+.si svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.6;}
+.sc h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;}
+.sc p{font-size:.83rem;color:var(--gray-500);line-height:1.7;flex:1;}
+.sl{display:inline-flex;align-items:center;gap:5px;margin-top:1.25rem;font-size:.8rem;
+    font-weight:600;color:var(--blue);text-decoration:none;}
+.dg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.dc{border:1px solid var(--gray-100);border-radius:16px;padding:2rem;transition:border-color .2s,transform .2s;}
+.dc:hover{border-color:var(--blue-lt);transform:translateY(-2px);}
+.dn{font-family:var(--ff-d);font-size:3rem;font-weight:700;color:var(--sky);line-height:1;margin-bottom:.75rem;}
+.dc h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;}
+.dc p{font-size:.83rem;color:var(--gray-500);line-height:1.7;}
+.ctab{background:linear-gradient(135deg,var(--blue-dk) 0%,var(--navy) 100%);padding:80px 4rem;text-align:center;}
+.ctab h2{font-family:var(--ff-d);font-size:clamp(1.8rem,2.5vw,2.6rem);font-weight:700;
+         color:#fff;margin-bottom:1rem;letter-spacing:-.02em;}
+.ctab p{font-size:1rem;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 2rem;line-height:1.75;}
+.ctr{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo"><img src="assets/logo.png" alt="BlueCredit"></a>
+  <div class="n-links">
+    <a href="index.html" class="act">Home</a>
+    <div class="n-drop" id="nd-consulting">
+      <button class="n-btn" onclick="navToggle('consulting')">Consulting
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+      </button>
+      <div class="n-menu">
+        <a href="capabilities.html">Capabilities</a>
+        <a href="industries.html">Industries We Serve</a>
+        <a href="past-performance.html">Past Performance</a>
+      </div>
+    </div>
+    <div class="n-drop" id="nd-collaborate">
+      <button class="n-btn" onclick="navToggle('collaborate')">Collaborate
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+      </button>
+      <div class="n-menu">
+        <a href="partnerships.html">Partnerships</a>
+        <a href="investors.html">Investors</a>
+        <a href="careers.html">Careers</a>
+      </div>
+    </div>
+    <a href="partnerships.html#contact" class="n-cta">Contact Us</a>
+  </div>
+</nav>
+<script>
+function navToggle(id){
+  ['consulting','collaborate'].forEach(function(n){
+    var el=document.getElementById('nd-'+n);
+    if(el){ el.classList[n===id?'toggle':'remove']('open'); }
+  });
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.n-drop')){
+    document.querySelectorAll('.n-drop').forEach(function(el){el.classList.remove('open');});
+  }
+});
+</script>
+<div class="pw">
+
+<section class="hero" style="padding:0;">
+  <div class="hi">
+    <div>
+      <div class="hey"><span></span>Science-based water consulting</div>
+      <h1>Water <em>resilience</em><br>from facility to watershed</h1>
+      <p class="hsub">BlueCredit Water Consulting delivers independent, defensible water sustainability, engineering, and risk management services — translating complex hydrologic and regulatory requirements into practical, data-driven strategies.</p>
+      <div class="ha">
+        <a href="capabilities.html" class="bp">Our Capabilities <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="assets/capability_statement.pdf" target="_blank" class="bg">Capability Statement PDF</a>
+      </div>
+    </div>
+    <div class="hc">
+      <div class="cb"><div class="cv">SAM<span>.</span></div><div class="cl">Registered &amp; contracting ready</div></div>
+      <div class="cb"><div class="cv">5<span>+</span></div><div class="cl">Core capability areas</div></div>
+      <div class="cb"><div class="cv">4<span>+</span></div><div class="cl">Industries served</div></div>
+      <div class="cb"><div class="cv">DMV</div><div class="cl">Based, globally experienced</div></div>
+    </div>
+  </div>
+</section>
+<div class="tb">
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/></svg>SAM.gov Registered</div>
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>UEI: KFH1PBB5TKD1 · CAGE: 17MA3</div>
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>Federal, State &amp; Private Sector</div>
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>Prime &amp; Subcontracting Available</div>
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>Alexandria, VA · DMV Region</div>
+</div>
+<section style="background:var(--gray-50);">
+  <div class="inn">
+    <div class="lbl">What We Do</div>
+    <h2 class="stitle">Five core consulting disciplines</h2>
+    <p class="ssub">From watershed-scale modeling to facility water management plans, we deliver science-based solutions at every scale of water challenge.</p>
+    <div class="sg">
+      <div class="sc"><div class="si"><svg viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Water Sustainability Strategy</h3><p>Stewardship program design aligned with AWS, CDP, GRI 303, and SBTN, plus ESG disclosure support.</p><a href="capabilities.html" class="sl">Learn more →</a></div>
+      <div class="sc"><div class="si"><svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Water Resources Engineering</h3><p>Watershed-scale hydrologic modeling, groundwater assessment, stormwater analysis, and independent verification.</p><a href="capabilities.html" class="sl">Learn more →</a></div>
+      <div class="sc"><div class="si"><svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5m4 0H9" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Institutional Water Management</h3><p>Water Management Plans, Legionella risk assessments (ANSI/ASHRAE 188), and cooling tower hazard analysis.</p><a href="capabilities.html" class="sl">Learn more →</a></div>
+      <div class="sc"><div class="si"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Water Project Management</h3><p>End-to-end delivery — scope, schedule, budget, multi-stakeholder coordination, and performance verification.</p><a href="capabilities.html" class="sl">Learn more →</a></div>
+      <div class="sc"><div class="si"><svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Digital Water Platforms</h3><p>GIS dashboards, digital twins, watershed analytics, and automated workflows for utilities and basin managers.</p><a href="capabilities.html" class="sl">Learn more →</a></div>
+      <div class="sc" style="background:var(--navy);" onmouseenter="this.style.background='#112b54'" onmouseleave="this.style.background='var(--navy)'"><div class="si" style="background:rgba(255,255,255,.1)"><svg viewBox="0 0 24 24" style="stroke:#fff"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3 style="color:#fff">Capability Statement</h3><p style="color:rgba(255,255,255,.5)">UEI: KFH1PBB5TKD1 · CAGE: 17MA3<br>D-U-N-S: 14-511-3881</p><a href="assets/capability_statement.pdf" target="_blank" class="sl" style="color:var(--blue-lt)">Download PDF →</a></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="inn">
+    <div class="lbl">Why BlueCredit</div>
+    <h2 class="stitle">Our differentiators</h2>
+    <p class="ssub">What sets BlueCredit apart — in delivery model, geography, and digital capability.</p>
+    <div class="dg">
+      <div class="dc"><div class="dn">01</div><h3>DMV-based, globally experienced</h3><p>Deep regional expertise across Virginia, Maryland, and DC, with documented projects in the US, Kenya, and Australia.</p></div>
+      <div class="dc"><div class="dn">02</div><h3>Integrated advisory-to-execution</h3><p>Cost-efficient model combining strategic advisory, engineering, field execution, and GIS/analytics decision support in one engagement.</p></div>
+      <div class="dc"><div class="dn">03</div><h3>Digital water expertise</h3><p>Unique capability developing online water applications, GIS dashboards, and digital twin platforms for utilities and basin management agencies.</p></div>
+    </div>
+  </div>
+</section>
+<div class="ctab">
+  <div class="inn">
+    <h2>Ready to strengthen your water resilience?</h2>
+    <p>Whether you need a watershed model, a Legionella risk assessment, or an ESG disclosure strategy — our team is ready.</p>
+    <div class="ctr">
+      <a href="partnerships.html#contact" class="bp">Get in Touch</a>
+      <a href="capabilities.html" class="bg">View All Capabilities</a>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="fg">
+    <div class="fb"><img src="assets/logo.png" alt="BlueCredit">
+      <p>Science-based water sustainability, engineering, and digital water management services for public agencies, utilities, and industrial operators.</p>
+      <p style="margin-top:.75rem;font-size:.78rem;color:rgba(255,255,255,.3)">2523 Windbreak Dr., Suite #A · Alexandria, VA 22306</p>
+    </div>
+    <div class="fc"><h4>Consulting</h4><ul>
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="industries.html">Industries We Serve</a></li>
+      <li><a href="past-performance.html">Past Performance</a></li>
+      <li><a href="assets/capability_statement.pdf" target="_blank">Capability Statement</a></li>
+    </ul></div>
+    <div class="fc"><h4>Collaborate</h4><ul>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="partnerships.html#contact">Contact Us</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a></li>
+      <li><a href="tel:4074142871">407.414.2871</a></li>
+      <li><a href="mailto:anwar@bluecredits.org">anwar@bluecredits.org</a></li>
+      <li><a href="tel:2024000510">202.400.0510</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 BlueCredit Inc. All rights reserved.</span>
+    <div class="fs">
+      <a href="https://x.com/BlueCreditInc" target="_blank">X / Twitter</a>
+      <a href="https://www.linkedin.com/company/bluecredits" target="_blank">LinkedIn</a>
+      <a href="http://bluecredits.org" target="_blank">bluecredits.org</a>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>

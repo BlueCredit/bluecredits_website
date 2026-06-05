@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Past Performance — BlueCredit Water Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0A1F3C;--blue-dk:#0C3468;--blue:#1252A3;--blue-md:#1A6BCC;--blue-lt:#2E8EE6;
+  --sky:#D6E8F8;--sky-lt:#EBF4FD;
+  --gray-900:#1C1C1E;--gray-700:#3A3A3C;--gray-500:#636366;
+  --gray-100:#E5E5EA;--gray-50:#F2F2F7;
+  --ff-d:"Playfair Display",Georgia,serif;--ff-b:"Inter",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-b);color:var(--gray-900);background:#fff;line-height:1.6;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 4rem;background:rgba(255,255,255,.97);border-bottom:1px solid var(--gray-100);}
+.n-logo{display:flex;align-items:center;text-decoration:none;}
+.n-logo img{height:32px;width:auto;}
+.n-links{display:flex;align-items:center;gap:2.5rem;}
+.n-links>a{font-size:.85rem;font-weight:500;color:var(--gray-700);text-decoration:none;transition:color .2s;}
+.n-links>a:hover,.n-links>a.act{color:var(--blue);}
+.n-drop{position:relative;}
+.n-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;
+       font-family:var(--ff-b);font-size:.85rem;font-weight:500;color:var(--gray-700);
+       cursor:pointer;padding:0;transition:color .2s;}
+.n-btn:hover,.n-btn.act{color:var(--blue);}
+.n-btn svg{transition:transform .25s;}
+.n-drop.open .n-btn{color:var(--blue);}
+.n-drop.open .n-btn svg{transform:rotate(180deg);}
+.n-menu{display:none;position:absolute;top:calc(100% + 10px);left:0;
+        min-width:210px;background:#fff;border:1px solid var(--gray-100);
+        border-radius:12px;padding:5px;
+        box-shadow:0 8px 30px rgba(10,31,60,.15);z-index:999;}
+.n-drop.open .n-menu{display:block;}
+.n-menu a{display:block;padding:10px 14px;border-radius:8px;font-size:.85rem;
+          color:var(--gray-700);text-decoration:none;white-space:nowrap;
+          transition:background .15s,color .15s;}
+.n-menu a:hover,.n-menu a.act{background:var(--sky-lt);color:var(--blue-dk);}
+.n-cta{display:inline-flex;align-items:center;gap:6px;background:var(--blue);
+       color:#fff!important;padding:9px 22px;border-radius:8px;font-weight:600;
+       font-size:.85rem;text-decoration:none;transition:background .2s;}
+.n-cta:hover{background:var(--blue-dk)!important;}
+
+/* ── LAYOUT ── */
+.pw{padding-top:68px;}
+section{padding:80px 4rem;}
+.inn{max-width:1200px;margin:0 auto;}
+.lbl{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+     text-transform:uppercase;color:var(--blue-md);margin-bottom:.6rem;}
+.stitle{font-family:var(--ff-d);font-size:clamp(1.8rem,2.8vw,2.5rem);font-weight:700;
+        color:var(--navy);line-height:1.18;margin-bottom:.75rem;letter-spacing:-.02em;}
+.ssub{font-size:.95rem;color:var(--gray-500);max-width:600px;line-height:1.8;margin-bottom:3rem;}
+
+/* ── PAGE HERO ── */
+.ph{background:var(--navy);padding:110px 4rem 80px;position:relative;overflow:hidden;}
+.ph::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 80% at 85% 50%,rgba(30,107,204,.38) 0%,transparent 70%),
+             radial-gradient(ellipse 40% 60% at 15% 80%,rgba(12,52,104,.5) 0%,transparent 65%);}
+.ph .inn{position:relative;}
+.hl{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--blue-lt);margin-bottom:1.25rem;}
+.ph h1{font-family:var(--ff-d);font-size:clamp(2.2rem,3.8vw,3.4rem);font-weight:700;
+       color:#fff;line-height:1.12;letter-spacing:-.025em;margin-bottom:1.1rem;}
+.ph h1 em{font-style:italic;color:#7EC8F5;}
+.ph p{font-size:1rem;color:rgba(255,255,255,.65);max-width:580px;line-height:1.8;}
+.page-tabs{display:flex;gap:2px;background:rgba(255,255,255,.08);
+           border:1px solid rgba(255,255,255,.15);border-radius:12px;
+           padding:4px;width:fit-content;margin-top:2rem;}
+.ptab{padding:9px 22px;border-radius:9px;font-size:.85rem;font-weight:500;
+      color:rgba(255,255,255,.65);text-decoration:none;transition:all .2s;}
+.ptab:hover{color:#fff;background:rgba(255,255,255,.08);}
+.ptab.act{background:#fff;color:var(--navy);font-weight:600;}
+
+/* ── BUTTONS ── */
+.bw{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--navy);
+    padding:13px 28px;border-radius:10px;font-weight:700;font-size:.9rem;
+    text-decoration:none;margin-top:2rem;transition:background .2s;}
+.bw:hover{background:var(--sky-lt);}
+.bb{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;
+    padding:11px 24px;border-radius:9px;font-weight:600;font-size:.85rem;
+    text-decoration:none;border:none;cursor:pointer;font-family:var(--ff-b);transition:background .2s;}
+.bb:hover{background:var(--blue-dk);}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.5);padding:60px 4rem 36px;}
+.fg{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:3rem;padding-bottom:3rem;margin-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.fb img{height:32px;margin-bottom:1rem;}
+.fb p{font-size:.83rem;line-height:1.75;max-width:280px;}
+.fc h4{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+       color:rgba(255,255,255,.35);margin-bottom:1rem;}
+.fc ul{list-style:none;}
+.fc li{margin-bottom:.55rem;}
+.fc a{font-size:.83rem;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.fc a:hover{color:#fff;}
+.fbot{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;
+      align-items:center;font-size:.78rem;color:rgba(255,255,255,.25);}
+.fs{display:flex;gap:1.5rem;}
+.fs a{color:rgba(255,255,255,.3);font-size:.78rem;text-decoration:none;transition:color .2s;}
+.fs a:hover{color:#fff;}
+</style>
+<style>
+.pp-list{display:flex;flex-direction:column;gap:3rem;}
+.pp-card{display:grid;grid-template-columns:320px 1fr;border:1px solid var(--gray-100);
+         border-radius:18px;overflow:hidden;transition:border-color .2s;}
+.pp-card:hover{border-color:var(--blue-lt);}
+.pp-card:nth-child(even){direction:rtl;}
+.pp-card:nth-child(even)>*{direction:ltr;}
+.pp-media{position:relative;}
+.pp-media img{width:100%;height:100%;object-fit:cover;min-height:260px;display:block;}
+.pp-media iframe{width:100%;height:100%;min-height:300px;border:none;display:block;}
+.pp-overlay{position:absolute;bottom:0;left:0;right:0;
+            background:linear-gradient(transparent,rgba(10,31,60,.88));
+            padding:1.5rem 1.25rem .75rem;}
+.pp-client{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-lt);}
+.pp-sector{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:3px;}
+.pp-year{font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:#fff;}
+.pp-body{padding:2rem 2.5rem;display:flex;flex-direction:column;justify-content:center;}
+.pp-body h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.35rem;line-height:1.4;}
+.pp-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem;}
+.pp-tag{font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:100px;
+        background:var(--sky-lt);color:var(--blue-dk);}
+.pp-kv{font-size:.8rem;color:var(--gray-500);margin-bottom:.2rem;}
+.pp-kv strong{color:var(--gray-700);font-weight:600;}
+.pp-sub{font-size:.73rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+        color:var(--blue);margin:.9rem 0 .35rem;}
+.pp-body p{font-size:.85rem;color:var(--gray-500);line-height:1.75;}
+.pp-ref{margin-top:.75rem;}
+.pp-ref a{font-size:.8rem;color:var(--blue);text-decoration:none;}
+.pp-ref a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo"><img src="assets/logo.png" alt="BlueCredit"></a>
+  <div class="n-links">
+    <a href="index.html">Home</a>
+    <div class="n-drop" id="nd-consulting">
+      <button class="n-btn act" onclick="navToggle('consulting')">Consulting
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+      </button>
+      <div class="n-menu">
+        <a href="capabilities.html">Capabilities</a>
+        <a href="industries.html">Industries We Serve</a>
+        <a href="past-performance.html" class="act">Past Performance</a>
+      </div>
+    </div>
+    <div class="n-drop" id="nd-collaborate">
+      <button class="n-btn" onclick="navToggle('collaborate')">Collaborate
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
+      </button>
+      <div class="n-menu">
+        <a href="partnerships.html">Partnerships</a>
+        <a href="investors.html">Investors</a>
+        <a href="careers.html">Careers</a>
+      </div>
+    </div>
+    <a href="partnerships.html#contact" class="n-cta">Contact Us</a>
+  </div>
+</nav>
+<script>
+function navToggle(id){
+  ['consulting','collaborate'].forEach(function(n){
+    var el=document.getElementById('nd-'+n);
+    if(el){ el.classList[n===id?'toggle':'remove']('open'); }
+  });
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.n-drop')){
+    document.querySelectorAll('.n-drop').forEach(function(el){el.classList.remove('open');});
+  }
+});
+</script>
+<div class="pw">
+
+<div class="ph">
+  <div class="inn">
+    <span class="hl">Consulting · Past Performance</span>
+    <h1>Proven results,<br><em>defensible</em> science</h1>
+    <p>Documented project experience across drinking water utilities, transportation infrastructure, international agriculture, and digital water policy.</p>
+    <div class="page-tabs">
+      <a href="capabilities.html" class="ptab">Capabilities</a>
+      <a href="industries.html" class="ptab">Industries We Serve</a>
+      <a href="past-performance.html" class="ptab act">Past Performance</a>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="inn">
+    <div class="lbl">Track Record</div>
+    <h2 class="stitle">Past performance</h2>
+    <p class="ssub">Documented experience across drinking water utilities, stormwater infrastructure, global agriculture, urban water risk, and digital water policy.</p>
+    <div class="pp-list">
+      <div class="pp-card">
+        <div class="pp-media"><img src="assets/kleinfelder.png" alt="Groundwater Modeling"><div class="pp-overlay"><div class="pp-client">Kleinfelder / SUEZ Water NJ</div><div class="pp-sector">Drinking Water Utilities</div><div class="pp-year">2022</div></div></div>
+        <div class="pp-body"><h3>Groundwater Contaminant Fate and Transport Modeling for Water Supply Protection</h3><div class="pp-tags"><span class="pp-tag">Lead Groundwater Modeler</span><span class="pp-tag">West Milford, NJ</span></div><p class="pp-kv"><strong>Role:</strong> Lead Groundwater Modeler &amp; Hydrogeologist &nbsp;·&nbsp; <strong>Award:</strong> $20,000</p><div class="pp-sub">Requirements</div><p>SUEZ Water NJ required a regulator-ready evaluation of long-term groundwater quality risks for Concord Well reinstatement. Our team built a 3D MODFLOW model spanning a 30-year horizon integrating aquifer properties, recharge estimates, and historical operational data.</p><div class="pp-sub">Results</div><p>Modeling confirmed plume stability and no migration toward the Concord Well under any pumping scenario — providing science-based evidence supporting regulatory acceptance and operational planning.</p></div>
+      </div>
+      <div class="pp-card">
+        <div class="pp-media"><img src="assets/watershed_pp.png" alt="Nairobi Dam"><div class="pp-overlay"><div class="pp-client">AMCOW / USAID</div><div class="pp-sector">Urban Water Infrastructure</div><div class="pp-year">2021–22</div></div></div>
+        <div class="pp-body"><h3>Nairobi Dam Breach Analysis and Watershed Risk Assessment</h3><div class="pp-tags"><span class="pp-tag">Lead Water Resources Engineer</span><span class="pp-tag">Nairobi, Kenya</span></div><div class="pp-sub">Requirements</div><p>AMCOW and USAID required an independent assessment including watershed-scale hydrologic analysis, dam breach inundation mapping, and evaluation of downstream exposure to support donor reporting and regional policy dialogue.</p><div class="pp-sub">Results</div><p>Breach modeling demonstrated extensive downstream inundation risks. Findings supported a strategic shift toward basin-scale river restoration and climate-resilient urban water planning.</p><div class="pp-ref"><a href="https://knowledgehub.amcow-online.org/resource/mazingira-yetu-magazine-21st-edition-dec-2021-april-2022" target="_blank">↗ Published in Mazingira Yetu Magazine, 21st Edition</a></div></div>
+      </div>
+      <div class="pp-card">
+        <div class="pp-media"><img src="assets/grdc.png" alt="GRDC ESG"><div class="pp-overlay"><div class="pp-client">Balmoral Group / GRDC</div><div class="pp-sector">Agriculture &amp; Supply Chains</div><div class="pp-year">2025–26</div></div></div>
+        <div class="pp-body"><h3>ESG Standards Benchmarking for the Australian Grains Industry</h3><div class="pp-tags"><span class="pp-tag">ESG &amp; Sustainability Lead</span><span class="pp-tag">Australia</span></div><p class="pp-kv"><strong>Award:</strong> $22,000</p><div class="pp-sub">Requirements</div><p>GRDC engaged our team to assess how global ESG standards — EU CSRD, SBTi FLAG, GRI 13, SBTN, AWS — reshape expectations for Australian grain growers and exporters, with focus on EU market access.</p><div class="pp-sub">Results</div><p>Delivered a phased adoption roadmap prioritising materiality assessment, MRV systems, supply chain traceability, and science-based target setting across the Australian grains sector.</p></div>
+      </div>
+      <div class="pp-card">
+        <div class="pp-media"><img src="assets/stormwater2.png" alt="Stormwater Engineering"><div class="pp-overlay"><div class="pp-client">Clark Nexen / Virginia DOT IDIQ</div><div class="pp-sector">Stormwater Infrastructure</div><div class="pp-year">2024–26</div></div></div>
+        <div class="pp-body"><h3>Stormwater Modeling and Water Resources Engineering — Virginia DOT IDIQ</h3><div class="pp-tags"><span class="pp-tag">Subcontractor</span><span class="pp-tag">Virginia, USA</span></div><p class="pp-kv"><strong>Clients:</strong> VDOT, City of Lynchburg, City of Virginia Beach &nbsp;·&nbsp; <strong>Award:</strong> $50,000</p><div class="pp-sub">Requirements</div><p>Multiple transportation and municipal infrastructure projects required stormwater modeling, drainage analysis, and technical memoranda compliant with Virginia stormwater regulations across multiple jurisdictions.</p><div class="pp-sub">Results</div><p>Deliverables supported permitting and construction for roadway improvements, pedestrian trails, intersection upgrades, and bridge hydraulics statewide.</p></div>
+      </div>
+      <div class="pp-card">
+        <div class="pp-media"><img src="assets/stormwater1.png" alt="Corporate Water Stewardship"><div class="pp-overlay"><div class="pp-client">Confidential Engineering Firm</div><div class="pp-sector">Corporate Water Stewardship</div><div class="pp-year">2026</div></div></div>
+        <div class="pp-body"><h3>Stormwater Modeling for Corporate Water Stewardship Program</h3><div class="pp-tags"><span class="pp-tag">Water Resources Engineering</span><span class="pp-tag">Virginia, USA</span></div><div class="pp-sub">Requirements</div><p>A large-scale corporate sustainability program required stormwater modeling and designs demonstrating measurable, verifiable water quantity and quality benefits suitable for regulatory review and sustainability reporting.</p><div class="pp-sub">Results</div><p>Outputs demonstrated quantified runoff reduction, peak flow attenuation, and pollutant load reduction — supporting credible, science-based corporate water stewardship claims.</p></div>
+      </div>
+      <div class="pp-card">
+        <div class="pp-media" style="position:relative;overflow:hidden;"><iframe src="https://public.flourish.studio/visualisation/27352160/embed" title="Data Center Water Policy"></iframe><div class="pp-overlay"><div class="pp-client">Federal &amp; State Policymakers</div><div class="pp-sector">Digital Infrastructure &amp; Water Policy</div><div class="pp-year">2024–</div></div></div>
+        <div class="pp-body"><h3>Data Center Water Transparency and Policy Analysis</h3><div class="pp-tags"><span class="pp-tag">Independent Technical Contributor</span><span class="pp-tag">US Federal &amp; Multi-State</span></div><div class="pp-sub">Requirements</div><p>Policymakers requested independent technical input during review of proposed legislation addressing data center water disclosure — translating hydrologic science and basin-scale risk into evidence-based perspectives.</p><div class="pp-sub">Results</div><p>Technical contributions addressed the Data Center Transparency Act and related state-level initiatives, emphasising consistent system boundaries, reporting frequency, and alignment with existing water monitoring frameworks.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="fg">
+    <div class="fb"><img src="assets/logo.png" alt="BlueCredit">
+      <p>Science-based water sustainability, engineering, and digital water management services for public agencies, utilities, and industrial operators.</p>
+      <p style="margin-top:.75rem;font-size:.78rem;color:rgba(255,255,255,.3)">2523 Windbreak Dr., Suite #A · Alexandria, VA 22306</p>
+    </div>
+    <div class="fc"><h4>Consulting</h4><ul>
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="industries.html">Industries We Serve</a></li>
+      <li><a href="past-performance.html">Past Performance</a></li>
+      <li><a href="assets/capability_statement.pdf" target="_blank">Capability Statement</a></li>
+    </ul></div>
+    <div class="fc"><h4>Collaborate</h4><ul>
+      <li><a href="partnerships.html">Partnerships</a></li>
+      <li><a href="investors.html">Investors</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="partnerships.html#contact">Contact Us</a></li>
+    </ul></div>
+    <div class="fc"><h4>Contact</h4><ul>
+      <li><a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a></li>
+      <li><a href="tel:4074142871">407.414.2871</a></li>
+      <li><a href="mailto:anwar@bluecredits.org">anwar@bluecredits.org</a></li>
+      <li><a href="tel:2024000510">202.400.0510</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 BlueCredit Inc. All rights reserved.</span>
+    <div class="fs">
+      <a href="https://x.com/BlueCreditInc" target="_blank">X / Twitter</a>
+      <a href="https://www.linkedin.com/company/bluecredits" target="_blank">LinkedIn</a>
+      <a href="http://bluecredits.org" target="_blank">bluecredits.org</a>
+    </div>
+  </div>
+</footer>
+</div>
+</body>
+</html>
