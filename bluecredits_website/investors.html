@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Careers — BlueCredit Water Consulting</title>
+<title>Investors — BlueCredit Water Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -141,14 +141,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .n-menu-divider{height:1px;background:var(--gray-100);margin:4px 8px;}
 
 
-.no-roles{display:flex;flex-direction:column;align-items:center;text-align:center;
-          gap:1rem;padding:3rem 2rem;background:var(--gray-50);border:1px solid var(--gray-100);
-          border-radius:18px;margin-bottom:3rem;}
-.no-roles svg{stroke:var(--gray-300);}
-.no-roles h3{font-size:1.1rem;font-weight:700;color:var(--navy);}
-.no-roles p{font-size:.9rem;color:var(--gray-500);line-height:1.8;max-width:520px;}
-
-
 .n-search-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
               background:none;border:none;cursor:pointer;border-radius:6px;
               color:var(--gray-700);transition:background .15s,color .15s;}
@@ -167,6 +159,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .search-close{background:none;border:none;cursor:pointer;color:var(--gray-400);font-size:1.2rem;
               padding:0 4px;line-height:1;}
 .search-hint{font-size:.78rem;color:var(--gray-400);margin-top:.75rem;text-align:center;}
+
+
+.pitch-modal{display:none;position:fixed;inset:0;background:rgba(10,31,60,.6);z-index:600;
+             align-items:center;justify-content:center;}
+.pitch-modal.open{display:flex;}
+.pitch-box{background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:460px;
+           box-shadow:0 20px 60px rgba(10,31,60,.25);text-align:center;}
+.pitch-box svg.pitch-icon{width:52px;height:52px;stroke:var(--blue);fill:none;stroke-width:1.2;margin-bottom:1.25rem;}
+.pitch-box h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;}
+.pitch-box p{font-size:.88rem;color:var(--gray-500);line-height:1.7;margin-bottom:1.75rem;}
+.pitch-btns{display:flex;flex-direction:column;gap:.75rem;}
+.pitch-dl{display:block;width:100%;padding:13px;border:none;border-radius:10px;
+          background:var(--blue);color:#fff;font-size:.9rem;font-weight:700;
+          font-family:var(--ff-b);cursor:pointer;text-decoration:none;
+          transition:background .2s;text-align:center;}
+.pitch-dl:hover{background:var(--blue-dk);}
+.pitch-cancel{background:none;border:none;font-size:.85rem;color:var(--gray-500);
+              cursor:pointer;font-family:var(--ff-b);padding:6px;}
+.pitch-cancel:hover{color:var(--gray-700);}
 
 </style>
 <style>
@@ -266,8 +277,8 @@ textarea{resize:vertical;min-height:90px;}
       </button>
       <div class="n-menu">
         <a href="partnerships.html">Partnerships</a>
-        <a href="investors.html">Investors</a>
-        <a href="careers.html" class="act">Careers</a>
+        <a href="investors.html" class="act">Investors</a>
+        <a href="careers.html">Careers</a>
       </div>
     </div>
   </div>
@@ -310,41 +321,42 @@ document.addEventListener('click',function(e){
 
 <div class="ph">
   <div class="inn">
-    <span class="hl">Collaborate · Careers</span>
-    <h1>Do the most important<br><em>water</em> work of your career</h1>
-    <p>We are building a team at the intersection of water science, engineering, and digital technology. Mission-driven work with measurable real-world impact.</p>
+    <span class="hl">Collaborate · Investors</span>
+    <h1>Invest in <em>water</em><br>resilience infrastructure</h1>
+    <p>A new class of investable water infrastructure and consulting assets — focused on impact, long-term basin resilience, and defensible science. Detailed materials available upon request.</p>
     <div class="page-tabs">
       <a href="partnerships.html" class="ptab">Partnerships</a>
-      <a href="investors.html" class="ptab">Investors</a>
-      <a href="careers.html" class="ptab act">Careers</a>
+      <a href="investors.html" class="ptab act">Investors</a>
+      <a href="careers.html" class="ptab">Careers</a>
     </div>
   </div>
 </div>
 <section>
   <div class="inn">
-    <div class="lbl">Open Roles</div>
-    <h2 class="stitle">Join the team</h2>
-    <p class="ssub">We welcome water scientists, engineers, data analysts, and technologists who want to apply cutting-edge methods to real water challenges.</p>
-    <div class="no-roles">
-      <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M20.25 14.15v4.073a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V14.15M16.5 6V5.25A2.25 2.25 0 0014.25 3h-4.5A2.25 2.25 0 007.5 5.25V6m9 0H7.5m9 0h2.25A2.25 2.25 0 0121 8.25v1.5M7.5 6H5.25A2.25 2.25 0 003 8.25v1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <h3>No open roles right now</h3>
-      <p>We don't have any active vacancies at the moment, but we are always interested in hearing from talented water scientists, engineers, data analysts, and technologists. Submit your details below and we'll be in touch when a suitable role opens up.</p>
+    <div class="lbl">Investment Opportunities</div>
+    <h2 class="stitle">What you can invest in</h2>
+    <p class="ssub">BlueCredit offers three distinct investment pathways — each focused on building long-term water resilience with defensible, science-based outcomes.</p>
+    <div class="inv-grid">
+      <div class="inv-card"><h3>Engineering Advisory Services</h3><p>Invest in BlueCredit's growth as a science-based consulting firm delivering hydrologic, sustainability, and digital water services across federal and private markets.</p></div>
+      <div class="inv-card"><h3>Digital Water Platform</h3><p>Support development of GIS dashboard, digital twin, and analytics technology for water utilities and basin-scale watershed management agencies.</p></div>
+      <div class="inv-card"><h3>Water Infrastructure Projects</h3><p>Co-finance high-impact water infrastructure — stormwater systems, reuse facilities, and watershed restoration — with measurable long-term performance outcomes.</p></div>
     </div>
-    <div id="apply" style="padding-top:1rem">
-      <div class="form-layout">
-        <div class="form-sidebar"><h3>Apply or express interest</h3><p>Submit your details for a current or future opening.</p><div class="info-box"><p>Send applications directly to:<br><a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a></p></div></div>
-        <div class="form-card">
-          <div class="form-card-title">Application / Expression of Interest</div>
-          <form action="https://formspree.io/f/xkoaonzj" method="POST">
-          <input type="hidden" name="_subject" value="New Job Application — BlueCredit">
-          <input type="hidden" name="_next" value="careers.html?sent=1">
-            <div class="frow"><div class="fg2"><label>Full name *</label><input type="text" name="full_name" required></div><div class="fg2"><label>Email *</label><input type="email" name="email" required></div></div>
-            <div class="frow"><div class="fg2"><label>Role of interest</label><select name="role"><option value="">Select</option><option>Water Resources</option><option>Data Scientist</option><option>Software</option><option>Business Development</option></select></div><div class="fg2"><label>LinkedIn profile</label><input type="url" name="linkedin" placeholder="https://linkedin.com/in/"></div></div>
-            <div class="fg2"><label>Cover message *</label><textarea rows="4" name="message" required placeholder="Tell us about your background and why you want to join BlueCredit…"></textarea></div>
-            <button type="submit" class="sub-btn">Submit Application</button>
-            
-          </form>
-        </div>
+    <div class="form-layout">
+      <div class="form-sidebar"><h3>Request investor materials</h3><p>Company overview, service roadmap, and financial summary available upon request.</p><div class="info-box"><p>For investor inquiries:<br><a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a><br>Nathan B. Wangusi, Ph.D, M.ASCE — CEO<br>407.414.2871</p></div>
+        <button onclick="document.getElementById('pitchModal').classList.add('open')" style="margin-top:1rem;display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:11px 22px;border-radius:9px;font-weight:600;font-size:.85rem;border:none;cursor:pointer;font-family:var(--ff-b);transition:background .2s;width:100%;justify-content:center;" onmouseover="this.style.background='var(--blue-dk)'" onmouseout="this.style.background='var(--navy)'"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Download Pitch Deck</button>
+      </div>
+      <div class="form-card">
+        <div class="form-card-title">Investor Information Request</div>
+        <form action="https://formspree.io/f/xkoaonzj" method="POST">
+          <input type="hidden" name="_subject" value="New Investor Request — BlueCredit">
+          <input type="hidden" name="_next" value="investors.html?sent=1">
+          <div class="frow"><div class="fg2"><label>Full name *</label><input type="text" name="full_name" required></div><div class="fg2"><label>Organisation *</label><input type="text" name="organisation" required></div></div>
+          <div class="frow"><div class="fg2"><label>Role / Title *</label><input type="text" name="title" required></div><div class="fg2"><label>Email *</label><input type="email" name="email" required></div></div>
+          <div class="fg2"><label>Investor type *</label><select name="investor_type" required><option value="">Select</option><option>Venture Capital</option><option>Development Finance Institution (DFI)</option><option>Impact Investment Fund</option><option>Family Office</option><option>Corporate Strategic Investor</option><option>Philanthropic / Grant-making</option><option>Other</option></select></div>
+          <div class="fg2"><label>Areas of interest / message</label><textarea rows="3" name="message" placeholder="Tell us about your investment thesis…"></textarea></div>
+          <button type="submit" class="sub-btn">Request Investor Materials</button>
+          
+        </form>
       </div>
     </div>
   </div>
@@ -386,5 +398,23 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 </div>
+
+<!-- PITCH DECK MODAL -->
+<div class="pitch-modal" id="pitchModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="pitch-box">
+    <svg class="pitch-icon" viewBox="0 0 24 24">
+      <path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M12 12V6.75m0 0L9.75 9M12 6.75L14.25 9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h3>BlueCredit Pitch Deck</h3>
+    <p>Download our investor pitch deck covering the BlueCredit platform, market opportunity, research program, and business model.</p>
+    <div class="pitch-btns">
+      <a href="assets/pitch_deck.pdf" download="BlueCredit_Pitch_Deck.pdf" class="pitch-dl">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;margin-right:6px;vertical-align:middle;"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"/></svg>Download Pitch Deck
+      </a>
+      <button class="pitch-cancel" onclick="document.getElementById('pitchModal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
