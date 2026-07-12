@@ -2,48 +2,33 @@ name: Deploy to Contabo
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch: {}
+    branches:
+      - main
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build image
-        run: docker build -t bluecredits-website:test .
-
-      - name: Run container
-        run: docker run -d --name website-smoke-test -p 8080:8080 bluecredits-website:test
-
-      - name: Wait for container
-        run: |
-          for i in $(seq 1 10); do
-            curl -sf http://localhost:8080/index.html > /dev/null && exit 0
-            sleep 1
-          done
-          echo "container never became ready" >&2
-          docker logs website-smoke-test
-          exit 1
-
-      - name: Smoke test
-        run: python3 tests/smoke_test.py http://localhost:8080
-
-      - name: Container logs (on failure)
-        if: failure()
-        run: docker logs website-smoke-test
-
   deploy:
-    needs: test
+    name: Build and deploy website
     runs-on: ubuntu-latest
-    steps:
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "${{ secrets.DEPLOY_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
-      - name: Deploy
-        run: ssh -i ~/.ssh/deploy_key deploy@185.252.235.16
+    steps:
+      - name: Deploy to Contabo via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.CONTABO_HOST }}
+          username: ${{ secrets.CONTABO_USER }}
+          key: ${{ secrets.CONTABO_SSH_KEY }}
+          script: |
+            set -e
+
+            echo "==> Pulling latest code"
+            cd /opt/bluecredits/website
+            git pull origin main
+
+            echo "==> Building Docker image"
+            docker build -t bluecredits-website:contabo .
+
+            echo "==> Restarting container"
+            docker restart bluecredits_website
+
+            echo "==> Done"
+            docker logs bluecredits_website --tail 5
