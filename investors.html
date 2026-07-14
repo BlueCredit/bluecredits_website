@@ -162,6 +162,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .search-hint{font-size:.78rem;color:var(--gray-400);margin-top:.75rem;text-align:center;}
 
 
+.pitch-modal{display:none;position:fixed;inset:0;background:rgba(10,31,60,.6);z-index:600;
+             align-items:center;justify-content:center;}
+.pitch-modal.open{display:flex;}
+.pitch-box{background:#fff;border-radius:20px;padding:2.5rem;width:100%;max-width:460px;
+           box-shadow:0 20px 60px rgba(10,31,60,.25);text-align:center;}
+.pitch-box svg.pitch-icon{width:52px;height:52px;stroke:var(--blue);fill:none;stroke-width:1.2;margin-bottom:1.25rem;}
+.pitch-box h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;}
+.pitch-box p{font-size:.88rem;color:var(--gray-500);line-height:1.7;margin-bottom:1.75rem;}
+.pitch-btns{display:flex;flex-direction:column;gap:.75rem;}
+.pitch-dl{display:block;width:100%;padding:13px;border:none;border-radius:10px;
+          background:var(--blue);color:#fff;font-size:.9rem;font-weight:700;
+          font-family:var(--ff-b);cursor:pointer;text-decoration:none;
+          transition:background .2s;text-align:center;}
+.pitch-dl:hover{background:var(--blue-dk);}
+.pitch-cancel{background:none;border:none;font-size:.85rem;color:var(--gray-500);
+              cursor:pointer;font-family:var(--ff-b);padding:6px;}
+.pitch-cancel:hover{color:var(--gray-700);}
 
 </style>
 <style>
@@ -240,7 +257,7 @@ textarea{resize:vertical;min-height:90px;}
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </button>
       <div class="n-menu">
-        <a href="https://app.bluecredits.org/" target="_blank">BlueCredit Marketplace</a>
+        <a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a>
         <a href="http://www.datacenterwaterleaks.com" target="_blank">Data Center Water Leaks</a>
       </div>
     </div>
@@ -271,7 +288,7 @@ textarea{resize:vertical;min-height:90px;}
       <svg viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <a href="newsroom.html" class="n-right-link">Newsroom</a>
-    <a href="https://app.bluecredits.org/login" target="_blank" class="n-login">
+    <a href="https://marketplace.bluecredits.org/login" target="_blank" class="n-login">
       <svg viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Login
     </a>
@@ -306,8 +323,8 @@ document.addEventListener('click',function(e){
 <div class="ph">
   <div class="inn">
     <span class="hl">Collaborate · Investors</span>
-    <h1>Invest in the <em>future</em><br>of water markets</h1>
-    <p>We are raising equity for the BlueCredit Marketplace — the first verified water credit marketplace — and seeking impact capital to fund water-positive projects across our growing portfolio.</p>
+    <h1>Invest in <em>water</em><br>resilience infrastructure</h1>
+    <p>A new class of investable water infrastructure and consulting assets — focused on impact, long-term basin resilience, and defensible science. Detailed materials available upon request.</p>
     <div class="page-tabs">
       <a href="partnerships.html" class="ptab">Partnerships</a>
       <a href="investors.html" class="ptab act">Investors</a>
@@ -318,99 +335,28 @@ document.addEventListener('click',function(e){
 <section>
   <div class="inn">
     <div class="lbl">Investment Opportunities</div>
-    <h2 class="stitle">Two ways to invest with BlueCredit</h2>
-    <p class="ssub">We are actively seeking two distinct types of capital — equity investors in our technology platform, and impact investors to finance water-positive projects.</p>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3.5rem;">
-      <!-- Track 1: Equity -->
-      <div style="border:2px solid var(--blue);border-radius:18px;padding:2rem;background:#fff;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem;">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Equity Investment
-        </div>
-        <h3 style="font-family:var(--ff-d);font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;">BlueCredit Marketplace</h3>
-        <p style="font-size:.88rem;color:var(--gray-500);line-height:1.8;margin-bottom:1.25rem;">We are raising equity through a Post-Money SAFE to accelerate the BlueCredit Marketplace — the first verified water credit trading platform. This round takes us to first credit sales, live Water+ projects, and an anchor enterprise customer.</p>
-        
-      </div>
-
-      <!-- Track 2: Impact -->
-      <div style="border:1px solid var(--gray-100);border-radius:18px;padding:2rem;background:#fff;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-md);margin-bottom:.85rem;">
-          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Impact / Project Finance
-        </div>
-        <h3 style="font-family:var(--ff-d);font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.6rem;">Water-Positive Project Fund</h3>
-        <p style="font-size:.88rem;color:var(--gray-500);line-height:1.8;margin-bottom:1.25rem;">We are building a pipeline of verified, shovel-ready Water+ projects across the US and East Africa. We seek green and water impact investors to co-finance project CAPEX in exchange for credit revenue and measurable ESG impact returns.</p>
-        
-      </div>
+    <h2 class="stitle">What you can invest in</h2>
+    <p class="ssub">BlueCredit offers three distinct investment pathways — each focused on building long-term water resilience with defensible, science-based outcomes.</p>
+    <div class="inv-grid">
+      <div class="inv-card"><h3>Engineering Advisory Services</h3><p>Invest in BlueCredit's growth as a science-based consulting firm delivering hydrologic, sustainability, and digital water services across federal and private markets.</p></div>
+      <div class="inv-card"><h3>Digital Water Platform</h3><p>Support development of GIS dashboard, digital twin, and analytics technology for water utilities and basin-scale watershed management agencies.</p></div>
+      <div class="inv-card"><h3>Water Infrastructure Projects</h3><p>Co-finance high-impact water infrastructure — stormwater systems, reuse facilities, and watershed restoration — with measurable long-term performance outcomes.</p></div>
     </div>
-
-    <!-- FORM -->
     <div class="form-layout">
-      <div class="form-sidebar">
-        <h3>Get in touch</h3>
-        <p>Tell us which track interests you and we'll follow up with the right materials. Submitting this form also adds you to our investor mailing list.</p>
-        <div class="info-box">
-          <p>Direct investor contact:<br>
-          <a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a><br>
-          Nathan B. Wangusi, Ph.D, M.ASCE — CEO<br>
-          407.414.2871</p>
-        </div>
-        <div style="margin-top:1rem;background:var(--navy);border-radius:14px;padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:.85rem;">
-          <div style="display:flex;align-items:center;gap:10px;">
-            <svg width="22" height="22" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>
-              <div style="font-size:.85rem;font-weight:700;color:#fff;">Marketplace Pitch Deck</div>
-              <div style="font-size:.73rem;color:rgba(255,255,255,.5);">Problem · Solution · Market · Ask</div>
-            </div>
-          </div>
-          <a href="assets/pitch_deck.pdf" download="BlueCredit_Marketplace_Pitch_Deck.pdf" style="display:flex;align-items:center;justify-content:center;gap:7px;background:var(--blue-md);color:#fff;padding:10px;border-radius:9px;font-size:.85rem;font-weight:600;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='var(--blue)'" onmouseout="this.style.background='var(--blue-md)'">
-            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download Pitch Deck
-          </a>
-        </div>
+      <div class="form-sidebar"><h3>Request investor materials</h3><p>Company overview, service roadmap, and financial summary available upon request.</p><div class="info-box"><p>For investor inquiries:<br><a href="mailto:barasa@bluecredits.org">barasa@bluecredits.org</a><br>Nathan B. Wangusi, Ph.D, M.ASCE — CEO<br>407.414.2871</p></div>
+        <button onclick="document.getElementById('pitchModal').classList.add('open')" style="margin-top:1rem;display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:11px 22px;border-radius:9px;font-weight:600;font-size:.85rem;border:none;cursor:pointer;font-family:var(--ff-b);transition:background .2s;width:100%;justify-content:center;" onmouseover="this.style.background='var(--blue-dk)'" onmouseout="this.style.background='var(--navy)'"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Download Pitch Deck</button>
       </div>
       <div class="form-card">
-        <div class="form-card-title">Investor Enquiry</div>
-        <form id="inv-form" onsubmit="handleInvSubmit(event)">
-          <div class="frow">
-            <div class="fg2"><label>Full name *</label><input type="text" id="inv-name" name="full_name" required></div>
-            <div class="fg2"><label>Organisation *</label><input type="text" id="inv-org" name="organisation" required></div>
-          </div>
-          <div class="frow">
-            <div class="fg2"><label>Role / Title *</label><input type="text" id="inv-title" name="title" required></div>
-            <div class="fg2"><label>Email *</label><input type="email" id="inv-email" name="email" required></div>
-          </div>
-          <div class="fg2">
-            <label>Investment interest *</label>
-            <select id="inv-track" name="investment_track" required onchange="togglePitchOpt(this.value)">
-              <option value="">Select</option>
-              <option value="Equity — BlueCredit Marketplace (SAFE)">Equity — BlueCredit Marketplace (SAFE)</option>
-              <option value="Impact / Project Finance — Water+ Projects">Impact / Project Finance — Water+ Projects</option>
-              <option value="Both tracks">Both tracks</option>
-            </select>
-          </div>
-          <div class="fg2">
-            <label>Investor type</label>
-            <select id="inv-type" name="investor_type">
-              <option value="">Select</option>
-              <option>Venture Capital</option>
-              <option>Development Finance Institution (DFI)</option>
-              <option>Impact Investment Fund</option>
-              <option>Family Office</option>
-              <option>Corporate Strategic Investor</option>
-              <option>Philanthropic / Grant-making</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="fg2"><label>Message</label><textarea id="inv-msg" rows="3" name="message" placeholder="Tell us about your investment thesis or any questions…"></textarea></div>
-
-
-
-          <button type="submit" class="sub-btn" id="inv-submit-btn">Submit Enquiry</button>
-          <div id="inv-success" style="display:none;background:var(--sky-lt);border:1px solid var(--sky);border-radius:10px;padding:1rem 1.25rem;margin-top:1rem;font-size:.875rem;color:var(--blue-dk);">
-            ✓ Thank you — we'll be in touch shortly. Check your inbox for a confirmation<span id="pitch-sent-note" style="display:none;"> and your pitch deck</span>.
-          </div>
+        <div class="form-card-title">Investor Information Request</div>
+        <form action="https://formspree.io/f/xkoaonzj" method="POST">
+          <input type="hidden" name="_subject" value="New Investor Request — BlueCredit">
+          <input type="hidden" name="_next" value="investors.html?sent=1">
+          <div class="frow"><div class="fg2"><label>Full name *</label><input type="text" name="full_name" required></div><div class="fg2"><label>Organisation *</label><input type="text" name="organisation" required></div></div>
+          <div class="frow"><div class="fg2"><label>Role / Title *</label><input type="text" name="title" required></div><div class="fg2"><label>Email *</label><input type="email" name="email" required></div></div>
+          <div class="fg2"><label>Investor type *</label><select name="investor_type" required><option value="">Select</option><option>Venture Capital</option><option>Development Finance Institution (DFI)</option><option>Impact Investment Fund</option><option>Family Office</option><option>Corporate Strategic Investor</option><option>Philanthropic / Grant-making</option><option>Other</option></select></div>
+          <div class="fg2"><label>Areas of interest / message</label><textarea rows="3" name="message" placeholder="Tell us about your investment thesis…"></textarea></div>
+          <button type="submit" class="sub-btn">Request Investor Materials</button>
+          
         </form>
       </div>
     </div>
@@ -423,7 +369,7 @@ document.addEventListener('click',function(e){
       <p style="margin-top:.75rem;font-size:.78rem;color:rgba(255,255,255,.3)">2523 Windbreak Dr., Suite #A · Alexandria, VA 22306</p>
     </div>
     <div class="fc"><h4>Products</h4><ul>
-      <li><a href="https://app.bluecredits.org/" target="_blank">BlueCredit Marketplace</a></li>
+      <li><a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a></li>
       <li><a href="http://www.datacenterwaterleaks.com" target="_blank">Data Center Water Leaks</a></li>
     </ul></div>
     <div class="fc"><h4>Research</h4><ul>
@@ -454,25 +400,22 @@ document.addEventListener('click',function(e){
 </footer>
 </div>
 
+<!-- PITCH DECK MODAL -->
+<div class="pitch-modal" id="pitchModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="pitch-box">
+    <svg class="pitch-icon" viewBox="0 0 24 24">
+      <path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M12 12V6.75m0 0L9.75 9M12 6.75L14.25 9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h3>BlueCredit Pitch Deck</h3>
+    <p>Download our investor pitch deck covering the BlueCredit platform, market opportunity, research program, and business model.</p>
+    <div class="pitch-btns">
+      <a href="assets/pitch_deck.pdf" download="BlueCredit_Pitch_Deck.pdf" class="pitch-dl">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline;margin-right:6px;vertical-align:middle;"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"/></svg>Download Pitch Deck
+      </a>
+      <button class="pitch-cancel" onclick="document.getElementById('pitchModal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+</div>
 
-<script>
-function handleInvSubmit(e) {
-  e.preventDefault();
-  var btn = document.getElementById('inv-submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Submitting…';
-
-  var fd = new FormData(document.getElementById('inv-form'));
-  fd.append('_subject', 'New Investor Enquiry — BlueCredit');
-
-  fetch('https://formspree.io/f/xkoaonzj', {
-    method: 'POST', body: fd, headers: { 'Accept': 'application/json' }
-  }).finally(function() {
-    document.getElementById('inv-success').style.display = 'block';
-    btn.textContent = 'Submitted ✓';
-    document.getElementById('inv-form').reset();
-  });
-}
-</script>
 </body>
 </html>
