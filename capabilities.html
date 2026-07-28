@@ -18,24 +18,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--ff-b);color:var(--gray-900);background:#fff;line-height:1.6;}
 
-/* ── NAV ── */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ── LAYOUT ── */
 .pw{padding-top:48px;}
 section{padding:80px 4rem;}
@@ -194,6 +176,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .cap-txt li:last-child{border-bottom:none;}
 .cap-txt li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;
                     border-radius:50%;background:var(--blue);}
+
+/* ── CAPABILITY DETAIL MODAL (clickable row + modal, all capabilities) ── */
+.cap-clickable{cursor:pointer;}
+.cap-more{display:inline-flex;align-items:center;gap:6px;margin-top:1.1rem;font-size:.82rem;font-weight:600;color:var(--blue);}
+.cap-more svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .2s;}
+.cap-clickable:hover .cap-more svg{transform:translateX(3px);}
+.cap-modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,31,60,.6);z-index:600;align-items:center;justify-content:center;padding:2rem;}
+.cap-modal-overlay.open{display:flex;}
+.cap-modal{background:#fff;border-radius:20px;max-width:660px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 24px 70px rgba(10,31,60,.3);position:relative;}
+.cap-modal-img{height:210px;overflow:hidden;border-radius:20px 20px 0 0;background:var(--gray-50);}
+.cap-modal-img img{width:100%;height:100%;object-fit:cover;display:block;}
+.cap-modal-body{padding:2.25rem 2.5rem 2.5rem;}
+.cap-modal-body .lbl{color:var(--blue-md);}
+.cap-modal-body h3{font-family:var(--ff-d);font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;letter-spacing:-.01em;}
+.cap-modal-body>p{font-size:.9rem;color:var(--gray-500);line-height:1.7;margin-bottom:1.25rem;}
+.cap-modal-body h4{font-size:.9rem;font-weight:700;color:var(--navy);margin:1.1rem 0 .4rem;}
+.cap-modal-body ul{list-style:none;margin-bottom:.5rem;}
+.cap-modal-body li{font-size:.88rem;color:var(--gray-700);padding:6px 0 6px 20px;position:relative;line-height:1.55;}
+.cap-modal-body li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:7px;border-radius:50%;background:var(--blue-md);}
+.cap-modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid var(--gray-100);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-700);font-size:1.1rem;z-index:2;transition:background .15s,color .15s;}
+.cap-modal-close:hover{background:var(--sky-lt);color:var(--blue);}
+@media(max-width:860px){.cap-modal-body{padding:1.75rem;}}
+
 </style>
 </head>
 <body>
@@ -281,7 +286,7 @@ document.addEventListener('click',function(e){
     </div>
 
 <a href="assets/capability_statement.pdf" target="_blank" download="capability_statement.pdf" class="bw" style="margin-top:1.5rem;">
-    Download Capability Statement 
+    Download Capability Statement
     <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -306,27 +311,29 @@ document.addEventListener('click',function(e){
       <h3>NAICS Codes &amp; Procurement Identifiers</h3>
       <div class="ng">
         <div class="ni"><code>541620</code>Environmental Consulting Services</div>
-        <div class="ni"><code>541330</code>Environmental Engineering Services</div>
-        <div class="ni"><code>541715</code>Environmental R&amp;D Services</div>
-        <div class="ni"><code>924110</code>Water Control &amp; Quality Programs</div>
-        <div class="ni"><code>22131</code>Water Supply &amp; Irrigation Systems</div>
-        <div class="ni"><code>541511</code>Computer Software Design Services</div>
-        <div class="ni"><code>541370</code>GIS Mapping Services</div>
+        <div class="ni"><code>541330</code>Engineering Services</div>
+        <div class="ni"><code>541715</code>Research &amp; Development in Engineering</div>
+        <div class="ni"><code>541511</code>Custom Computer Programming Services</div>
+        <div class="ni"><code>541512</code>Computer Systems Design Services</div>
+        <div class="ni"><code>518210</code>Data Processing, Hosting &amp; Related Services</div>
+        <div class="ni"><code>541370</code>Surveying &amp; Mapping (GIS) Services</div>
       </div>
       <div class="nm">
         <span><strong>UEI:</strong> KFH1PBB5TKD1</span>
         <span><strong>CAGE:</strong> 17MA3</span>
         <span><strong>D-U-N-S:</strong> 14-511-3881</span>
-        <span><strong>NGIPS:</strong> 92600, 92623, 92672</span>
-        <span><strong>PSC:</strong> B510, B525, C1NE, AH12, DA01</span>
+        <span><strong>NGIPS:</strong> 92600, 92623, 92672, 91871, 204-00</span>
+        <span><strong>PSC:</strong> B510, B525, AH12, DA01, 7C20</span>
+        <span><strong>UNSPSC:</strong> 77101600, 77101700, 43211500</span>
       </div>
     </div>
     <div class="cap-list">
-      <div class="cap-row"><div class="cap-img"><img src="assets/waterpositive.png" alt="Water Sustainability Strategy"></div><div class="cap-txt"><h3>Water Sustainability Strategy</h3><ul><li>Corporate and institutional water stewardship program design grounded in basin context and operational realities</li><li>Water-positive and watershed replenishment strategies aligned with AWS, CDP, GRI 303, and SBTN</li><li>Disclosure, verification, and assurance support for regulatory compliance and ESG reporting</li></ul></div></div>
-      <div class="cap-row"><div class="cap-img"><img src="assets/watershed.png" alt="Water Resources Engineering"></div><div class="cap-txt"><h3>Water Resources Engineering Services</h3><ul><li>Watershed-scale hydrologic modeling integrating stormwater, surface water, streamflow networks, and groundwater</li><li>Quantification of water savings, reuse, replenishment, recharge, and efficiency impacts using science-based methods</li><li>Independent verification and audit-ready documentation at facility, utility, and watershed scales</li></ul></div></div>
-      <div class="cap-row"><div class="cap-img"><img src="assets/institutional.png" alt="Institutional Water Management"></div><div class="cap-txt"><h3>Institutional Water Management</h3><ul><li>Water Management Plan development, audits, and lifecycle updates</li><li>Legionella risk assessment and prevention planning aligned with ANSI/ASHRAE 188 and CDC guidance</li><li>Cooling tower and domestic water system hazard analysis and operational oversight</li></ul></div></div>
-      <div class="cap-row"><div class="cap-img"><img src="assets/projectmgt.png" alt="Water Project Management"></div><div class="cap-txt"><h3>Water Projects Management</h3><ul><li>End-to-end management of water projects from planning through implementation</li><li>Scope development, schedule and budget control, and multi-stakeholder coordination</li><li>Oversight of pilots, phased deployments, and performance verification</li></ul></div></div>
-      <div class="cap-row"><div class="cap-img"><img src="assets/analytics.png" alt="Digital Water Platforms"></div><div class="cap-txt"><h3>Digital Water Platforms</h3><ul><li>GIS-based water data monitoring, analytics, and watershed mapping</li><li>Dashboards, trend analysis, and technical reporting</li><li>Automation of stormwater, nutrient, and mitigation workflows for utilities and basin managers</li></ul></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('hydro')"><div class="cap-img"><img src="assets/waterpositive.png" alt="Hydrologic & Water Resources Engineering"></div><div class="cap-txt"><h3>Hydrologic &amp; Water Resources Engineering</h3><ul><li>Surface water, groundwater, stormwater, and watershed analysis</li><li>Hydraulic modeling, flood studies, and bridge hydraulics</li><li>Water resources planning at facility, utility, and basin scales</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('sustainability')"><div class="cap-img"><img src="assets/watershed.png" alt="Water Sustainability & Environmental Compliance"></div><div class="cap-txt"><h3>Water Sustainability &amp; Environmental Compliance</h3><ul><li>Water stewardship, water risk assessments, and ESG reporting</li><li>Sustainability disclosures aligned with AWS, GRI 303, SBTN &amp; CDP</li><li>Stormwater permitting &mdash; MS4, NPDES, and SWPPP development</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('stormwater')"><div class="cap-img"><img src="assets/institutional.png" alt="Stormwater & Climate Resilience"></div><div class="cap-txt"><h3>Stormwater &amp; Climate Resilience</h3><ul><li>Drainage design, green infrastructure, and erosion &amp; sediment control</li><li>Floodplain analysis and flood risk mapping</li><li>Climate resilience planning for infrastructure and communities</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('asset')"><div class="cap-img"><img src="assets/projectmgt.png" alt="Infrastructure Asset Management"></div><div class="cap-txt"><h3>Infrastructure Asset Management</h3><ul><li>Infrastructure inspections and condition assessments</li><li>GIS asset inventories and digital twins</li><li>Capital planning and lifecycle management</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('geospatial')"><div class="cap-img"><img src="assets/analytics.png" alt="Environmental Data & Geospatial Intelligence"></div><div class="cap-txt"><h3>Environmental Data &amp; Geospatial Intelligence</h3><ul><li>GIS, remote sensing, and AI-driven environmental analytics</li><li>Dashboards, environmental and credit tracking</li><li>Data pipelines for utilities, agencies, and basin managers</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('datacenters')"><div class="cap-img"><img src="assets/datacenters.png" alt="Edge Computing & Sustainable AI"></div><div class="cap-txt"><h3>Edge Computing &amp; Sustainable AI</h3><ul><li>Edge data center consulting and AI infrastructure</li><li>IoT integration and environmental monitoring</li><li>Digital infrastructure for utilities, government &amp; critical infrastructure</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
     </div>
   </div>
 </section>
@@ -367,5 +374,107 @@ document.addEventListener('click',function(e){
   </div>
 </footer>
 </div>
+<div class="cap-modal-overlay" id="capModal" onclick="if(event.target===this)closeCap()">
+  <div class="cap-modal">
+    <button class="cap-modal-close" onclick="closeCap()" aria-label="Close">&#10005;</button>
+    <div class="cap-modal-img"><img id="capModalImg" src="" alt=""></div>
+    <div class="cap-modal-body" id="capModalBody"></div>
+  </div>
+</div>
+<script>
+var capData = {
+  hydro: {
+    img: "assets/waterpositive.png",
+    alt: "Hydrologic & Water Resources Engineering",
+    label: "BlueCredit &middot; Water Resources Engineering",
+    title: "Hydrologic &amp; Water Resources Engineering",
+    desc: "Modeling and engineering analysis that connects facility-level water use to the broader hydrologic system, from local drainage to full watershed and basin dynamics.",
+    sections: [
+      { h4: "Hydrologic &amp; hydraulic modeling", items: ["Surface water, groundwater, and stormwater analysis", "Hydraulic modeling for open channels, culverts, and bridge crossings", "Flood studies and flow frequency analysis"] },
+      { h4: "Watershed &amp; basin planning", items: ["Watershed-scale water resources planning", "Basin water balance and allocation studies", "Integration with regional and utility planning efforts"] },
+      { h4: "Deliverables", items: ["Technical modeling reports and calculation packages", "Regulatory-ready hydraulic and hydrologic documentation", "GIS-based watershed and drainage mapping"] }
+    ]
+  },
+  sustainability: {
+    img: "assets/watershed.png",
+    alt: "Water Sustainability & Environmental Compliance",
+    label: "BlueCredit &middot; Sustainability &amp; Compliance",
+    title: "Water Sustainability &amp; Environmental Compliance",
+    desc: "Programs that translate corporate water stewardship commitments and regulatory obligations into audit-ready, defensible documentation.",
+    sections: [
+      { h4: "Water stewardship &amp; ESG reporting", items: ["Water risk assessments across facility and watershed scales", "Sustainability disclosures aligned with AWS, GRI 303, SBTN &amp; CDP", "Water stewardship program design and target-setting"] },
+      { h4: "Stormwater permitting", items: ["MS4 and NPDES permit support", "SWPPP development, updates, and inspections", "Compliance tracking and regulatory correspondence"] },
+      { h4: "Deliverables", items: ["Audit-ready compliance documentation", "ESG and sustainability disclosure reports", "Permit applications and renewal packages"] }
+    ]
+  },
+  stormwater: {
+    img: "assets/institutional.png",
+    alt: "Stormwater & Climate Resilience",
+    label: "BlueCredit &middot; Stormwater &amp; Resilience",
+    title: "Stormwater &amp; Climate Resilience",
+    desc: "Drainage and resilience planning that reduces flood risk today while preparing infrastructure and communities for a changing climate.",
+    sections: [
+      { h4: "Drainage &amp; green infrastructure", items: ["Drainage system design and capacity analysis", "Green infrastructure and low-impact development design", "Erosion and sediment control planning"] },
+      { h4: "Flood risk &amp; floodplain analysis", items: ["Floodplain delineation and flood risk mapping", "Flood study support for permitting and planning"] },
+      { h4: "Climate resilience planning", items: ["Infrastructure vulnerability assessments", "Climate resilience planning for utilities and communities", "Adaptation strategy development"] }
+    ]
+  },
+  asset: {
+    img: "assets/projectmgt.png",
+    alt: "Infrastructure Asset Management",
+    label: "BlueCredit &middot; Asset Management",
+    title: "Infrastructure Asset Management",
+    desc: "Condition data and asset planning that help utilities and agencies extend infrastructure life and prioritize capital investment.",
+    sections: [
+      { h4: "Inspection &amp; condition assessment", items: ["Infrastructure inspections across water, wastewater, and stormwater assets", "Condition assessments and remaining-life estimates"] },
+      { h4: "Digital asset management", items: ["GIS-based asset inventories", "Digital twin development for critical infrastructure"] },
+      { h4: "Capital planning", items: ["Lifecycle management and capital improvement planning", "Prioritization frameworks for infrastructure investment"] }
+    ]
+  },
+  geospatial: {
+    img: "assets/analytics.png",
+    alt: "Environmental Data & Geospatial Intelligence",
+    label: "BlueCredit &middot; Data &amp; Geospatial Intelligence",
+    title: "Environmental Data &amp; Geospatial Intelligence",
+    desc: "Data infrastructure and analytics that turn environmental monitoring into decision-ready information for utilities, agencies, and basin managers.",
+    sections: [
+      { h4: "GIS &amp; remote sensing", items: ["GIS-based environmental and water resources mapping", "Remote sensing and AI-driven environmental analytics"] },
+      { h4: "Dashboards &amp; tracking", items: ["Environmental and water credit tracking dashboards", "Trend analysis and technical reporting"] },
+      { h4: "Data pipelines", items: ["Data pipeline design for utilities, agencies, and basin managers", "Integration with monitoring networks and telemetry systems"] }
+    ]
+  },
+  datacenters: {
+    img: "assets/datacenters.png",
+    alt: "Sustainable edge data center with solar and green infrastructure",
+    label: "BlueAI &middot; Data Center Consulting",
+    title: "Low-impact AI &amp; edge data centers",
+    desc: "Extending our engineering discipline to AI and edge infrastructure &mdash; right-sizing, low-impact design, and the water &amp; carbon accounting that makes &ldquo;green&rdquo; measurable. Built on hands-on modular data center configuration and deployment experience.",
+    sections: [
+      { h4: "Sizing &amp; design", items: ["Load, PUE, and redundancy (N, N+1, 2N) analysis", "Modular and containerized edge data center design", "Vendor-neutral specification &amp; bill of quantities"] },
+      { h4: "Low-impact cooling &amp; power", items: ["Air-cooled and closed-loop cooling with no evaporative draw", "DX vs chilled-water strategy for lowest practical PUE/WUE", "Renewable-aligned power, solar-assist, generator &amp; UPS resilience"] },
+      { h4: "Water &amp; carbon accounting", items: ["WUE/PUE measurement and water balance modeling", "Scope 1&ndash;3 inventory &amp; verified offset pathways", "AWS, GRI 303, SBTN, GHG Protocol &amp; CDP alignment"] },
+      { h4: "Deployment &amp; monitoring", items: ["Turnkey edge node deployment &amp; commissioning", "Environment monitoring (EMS) &amp; DCIM integration", "Live telemetry into DataCenterWaterLeaks &amp; BlueCreditS"] }
+    ]
+  }
+};
+
+function openCap(key){
+  var d = capData[key];
+  if(!d) return;
+  document.getElementById('capModalImg').src = d.img;
+  document.getElementById('capModalImg').alt = d.alt;
+  var html = '<div class="lbl">' + d.label + '</div><h3>' + d.title + '</h3><p>' + d.desc + '</p>';
+  d.sections.forEach(function(s){
+    html += '<h4>' + s.h4 + '</h4><ul>';
+    s.items.forEach(function(item){ html += '<li>' + item + '</li>'; });
+    html += '</ul>';
+  });
+  document.getElementById('capModalBody').innerHTML = html;
+  document.getElementById('capModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeCap(){document.getElementById('capModal').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCap();});
+</script>
 </body>
 </html>
