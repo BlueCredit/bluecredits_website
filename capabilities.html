@@ -330,10 +330,8 @@ document.addEventListener('click',function(e){
       </div>
     </div>
     <div class="cap-list">
-      <div class="cap-row cap-clickable" onclick="openCap('hydro')"><div class="cap-img"><img src="assets/waterpositive.png" alt="Hydrologic & Water Resources Engineering"></div><div class="cap-txt"><h3>Hydrologic &amp; Water Resources Engineering</h3><ul><li>Surface water, groundwater, stormwater, and watershed analysis</li><li>Hydraulic modeling, flood studies, and bridge hydraulics</li><li>Water resources planning at facility, utility, and basin scales</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
+      <div class="cap-row cap-clickable" onclick="openCap('waterinfra')"><div class="cap-img"><img src="assets/waterpositive.png" alt="Water Resources & Infrastructure Engineering"></div><div class="cap-txt"><h3>Water Resources &amp; Infrastructure Engineering</h3><ul><li>Surface water, groundwater, stormwater, and watershed analysis</li><li>Hydraulic modeling, flood studies, floodplain mapping, and bridge hydraulics</li><li>Drainage design, green infrastructure, and erosion &amp; sediment control</li><li>Climate resilience planning for infrastructure and communities</li><li>Infrastructure inspections, condition assessments, GIS asset inventories, and digital twins</li><li>Capital planning and lifecycle management across facility, utility, and basin scales</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
       <div class="cap-row cap-clickable" onclick="openCap('sustainability')"><div class="cap-img"><img src="assets/watershed.png" alt="Water Sustainability & Environmental Compliance"></div><div class="cap-txt"><h3>Water Sustainability &amp; Environmental Compliance</h3><ul><li>Water stewardship, water risk assessments, and ESG reporting</li><li>Sustainability disclosures aligned with AWS, GRI 303, SBTN &amp; CDP</li><li>Stormwater permitting &mdash; MS4, NPDES, and SWPPP development</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
-      <div class="cap-row cap-clickable" onclick="openCap('stormwater')"><div class="cap-img"><img src="assets/institutional.png" alt="Stormwater & Climate Resilience"></div><div class="cap-txt"><h3>Stormwater &amp; Climate Resilience</h3><ul><li>Drainage design, green infrastructure, and erosion &amp; sediment control</li><li>Floodplain analysis and flood risk mapping</li><li>Climate resilience planning for infrastructure and communities</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
-      <div class="cap-row cap-clickable" onclick="openCap('asset')"><div class="cap-img"><img src="assets/projectmgt.png" alt="Infrastructure Asset Management"></div><div class="cap-txt"><h3>Infrastructure Asset Management</h3><ul><li>Infrastructure inspections and condition assessments</li><li>GIS asset inventories and digital twins</li><li>Capital planning and lifecycle management</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
       <div class="cap-row cap-clickable" onclick="openCap('geospatial')"><div class="cap-img"><img src="assets/analytics.png" alt="Environmental Data & Geospatial Intelligence"></div><div class="cap-txt"><h3>Environmental Data &amp; Geospatial Intelligence</h3><ul><li>GIS, remote sensing, and AI-driven environmental analytics</li><li>Dashboards, environmental and credit tracking</li><li>Data pipelines for utilities, agencies, and basin managers</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
       <div class="cap-row cap-clickable" onclick="openCap('datacenters')"><div class="cap-img"><img src="assets/datacenters.png" alt="Edge Computing & Sustainable AI"></div><div class="cap-txt"><h3>Edge Computing &amp; Sustainable AI</h3><ul><li>Edge data center consulting and AI infrastructure</li><li>IoT integration and environmental monitoring</li><li>Digital infrastructure for utilities, government &amp; critical infrastructure</li></ul><span class="cap-more">View details <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
     </div>
@@ -385,16 +383,18 @@ document.addEventListener('click',function(e){
 </div>
 <script>
 var capData = {
-  hydro: {
+  waterinfra: {
     img: "assets/waterpositive.png",
-    alt: "Hydrologic & Water Resources Engineering",
-    label: "BlueCredit &middot; Water Resources Engineering",
-    title: "Hydrologic &amp; Water Resources Engineering",
-    desc: "Modeling and engineering analysis that connects facility-level water use to the broader hydrologic system, from local drainage to full watershed and basin dynamics.",
+    alt: "Water Resources & Infrastructure Engineering",
+    label: "BlueCredit &middot; Water Resources &amp; Infrastructure Engineering",
+    title: "Water Resources &amp; Infrastructure Engineering",
+    desc: "Modeling, design, and asset management that connect facility-level water use and infrastructure condition to the broader hydrologic system &mdash; from local drainage to full watershed and basin dynamics.",
     sections: [
-      { h4: "Hydrologic &amp; hydraulic modeling", items: ["Surface water, groundwater, and stormwater analysis", "Hydraulic modeling for open channels, culverts, and bridge crossings", "Flood studies and flow frequency analysis"] },
+      { h4: "Hydrologic &amp; hydraulic modeling", items: ["Surface water, groundwater, and stormwater analysis", "Hydraulic modeling for open channels, culverts, and bridge crossings", "Flood studies, flow frequency analysis, and floodplain/flood risk mapping"] },
       { h4: "Watershed &amp; basin planning", items: ["Watershed-scale water resources planning", "Basin water balance and allocation studies", "Integration with regional and utility planning efforts"] },
-      { h4: "Deliverables", items: ["Technical modeling reports and calculation packages", "Regulatory-ready hydraulic and hydrologic documentation", "GIS-based watershed and drainage mapping"] }
+      { h4: "Stormwater &amp; climate resilience", items: ["Drainage system design and capacity analysis", "Green infrastructure and low-impact development design", "Erosion and sediment control planning", "Infrastructure vulnerability assessments and climate adaptation strategy development"] },
+      { h4: "Infrastructure asset management", items: ["Infrastructure inspections and condition assessments across water, wastewater, and stormwater assets", "GIS-based asset inventories and digital twin development", "Capital improvement planning, lifecycle management, and investment prioritization"] },
+      { h4: "Deliverables", items: ["Technical modeling reports and calculation packages", "Regulatory-ready hydraulic, hydrologic, and floodplain documentation", "GIS-based watershed, drainage, and asset mapping"] }
     ]
   },
   sustainability: {
@@ -407,30 +407,6 @@ var capData = {
       { h4: "Water stewardship &amp; ESG reporting", items: ["Water risk assessments across facility and watershed scales", "Sustainability disclosures aligned with AWS, GRI 303, SBTN &amp; CDP", "Water stewardship program design and target-setting"] },
       { h4: "Stormwater permitting", items: ["MS4 and NPDES permit support", "SWPPP development, updates, and inspections", "Compliance tracking and regulatory correspondence"] },
       { h4: "Deliverables", items: ["Audit-ready compliance documentation", "ESG and sustainability disclosure reports", "Permit applications and renewal packages"] }
-    ]
-  },
-  stormwater: {
-    img: "assets/institutional.png",
-    alt: "Stormwater & Climate Resilience",
-    label: "BlueCredit &middot; Stormwater &amp; Resilience",
-    title: "Stormwater &amp; Climate Resilience",
-    desc: "Drainage and resilience planning that reduces flood risk today while preparing infrastructure and communities for a changing climate.",
-    sections: [
-      { h4: "Drainage &amp; green infrastructure", items: ["Drainage system design and capacity analysis", "Green infrastructure and low-impact development design", "Erosion and sediment control planning"] },
-      { h4: "Flood risk &amp; floodplain analysis", items: ["Floodplain delineation and flood risk mapping", "Flood study support for permitting and planning"] },
-      { h4: "Climate resilience planning", items: ["Infrastructure vulnerability assessments", "Climate resilience planning for utilities and communities", "Adaptation strategy development"] }
-    ]
-  },
-  asset: {
-    img: "assets/projectmgt.png",
-    alt: "Infrastructure Asset Management",
-    label: "BlueCredit &middot; Asset Management",
-    title: "Infrastructure Asset Management",
-    desc: "Condition data and asset planning that help utilities and agencies extend infrastructure life and prioritize capital investment.",
-    sections: [
-      { h4: "Inspection &amp; condition assessment", items: ["Infrastructure inspections across water, wastewater, and stormwater assets", "Condition assessments and remaining-life estimates"] },
-      { h4: "Digital asset management", items: ["GIS-based asset inventories", "Digital twin development for critical infrastructure"] },
-      { h4: "Capital planning", items: ["Lifecycle management and capital improvement planning", "Prioritization frameworks for infrastructure investment"] }
     ]
   },
   geospatial: {
