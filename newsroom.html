@@ -18,24 +18,6 @@
 html{scroll-behavior:smooth;}
 body{font-family:var(--ff-b);color:var(--gray-900);background:#fff;line-height:1.6;}
 
-/* ── NAV ── */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ── LAYOUT ── */
 .pw{padding-top:48px;}
 section{padding:80px 4rem;}
@@ -163,8 +145,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
 .search-hint{font-size:.78rem;color:var(--gray-400);margin-top:.75rem;text-align:center;}
 
 </style>
-<style>
-</style>
 </head>
 <body>
 <nav>
@@ -172,12 +152,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
   <div class="n-divider"></div>
   <div class="n-left">
     <div class="n-drop" id="nd-platforms">
-      <button class="n-btn" onclick="navToggle('platforms')">Platforms
+      <button class="n-btn" onclick="navToggle('platforms')">Solutions
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
       </button>
       <div class="n-menu">
         <a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a>
         <a href="https://atlas.bluecredits.org" target="_blank">BlueCredit Atlas</a>
+        <a href="bluefund.html">The Blue Fund</a>
       </div>
     </div>
     <div class="n-drop" id="nd-consulting">
@@ -190,7 +171,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
         <a href="past-performance.html">Past Performance</a>
       </div>
     </div>
-    <a href="research.html" class="act">Research</a>
+    <a href="research.html">Research</a>
     <div class="n-drop" id="nd-collaborate">
       <button class="n-btn" onclick="navToggle('collaborate')">Collaborate
         <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l4 4 4-4"/></svg>
@@ -206,7 +187,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:48px;
     <button class="n-search-btn" onclick="document.getElementById('searchOverlay').classList.add('open')" aria-label="Search">
       <svg viewBox="0 0 24 24"><path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <a href="newsroom.html" class="act" class="n-right-link">Newsroom</a>
+    <a href="newsroom.html" class="n-right-link" style="color:var(--blue)">Newsroom</a>
     <a href="https://marketplace.bluecredits.org/login" target="_blank" class="n-login">
       <svg viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Login
@@ -272,9 +253,10 @@ document.addEventListener('click',function(e){
       <p>Science-based water sustainability, engineering, and digital water management services for public agencies, utilities, and industrial operators.</p>
       <p style="margin-top:.75rem;font-size:.78rem;color:rgba(255,255,255,.3)">2523 Windbreak Dr., Suite #A · Alexandria, VA 22306</p>
     </div>
-    <div class="fc"><h4>Products</h4><ul>
+    <div class="fc"><h4>Solutions</h4><ul>
       <li><a href="https://marketplace.bluecredits.org/" target="_blank">BlueCredit Marketplace</a></li>
       <li><a href="https://atlas.bluecredits.org" target="_blank">BlueCredit Atlas</a></li>
+      <li><a href="bluefund.html">The Blue Fund</a></li>
     </ul></div>
     <div class="fc"><h4>Research</h4><ul>
       <li><a href="research.html">Overview</a></li>
@@ -293,7 +275,7 @@ document.addEventListener('click',function(e){
     </ul></div>
   </div>
   <div class="fbot">
-    <span>© 2025 BlueCredit Inc. All rights reserved.</span>
+    <span>© 2026 BlueCredit Inc. All rights reserved.</span>
     <div class="fs">
       <a href="https://x.com/BlueCreditInc" target="_blank">X / Twitter</a>
       <a href="https://www.linkedin.com/company/bluecredits" target="_blank">LinkedIn</a>
